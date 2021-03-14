@@ -37,4 +37,12 @@ when = "true"
 command = "get-spotify"
 shell = ["bash","--norc","--noprofile"]
 style = "bright-green bold"
-format = " playing [$output]($style) "
+format = "[$output]($style) "
+
+[custom.temp]
+when = "true"
+command = "sensors k10temp-pci-00c3 | grep temp1 | awk '{print $2}'"
+shell = ["bash","--norc","--noprofile"]
+symbol = "🌡"
+style = "red bold"
+format = "[$symbol ($output )]($style)"
